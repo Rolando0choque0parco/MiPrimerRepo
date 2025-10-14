@@ -28,6 +28,18 @@ class Libro extends Publicacion{
                 \tNumPaginas: %d 
                 """.formatted(titulo, autor, nombreEditorial, numPaginas); 
     }
+    protected void prestarLibro(){
+        System.out.println("libro " +  titulo + "prestado por 15 dias");
+    }
+    protected void prestarLibro(int dias){
+        System.out.println("libro " + titulo + "prestado por " + dias + " dias");
+    }
+    protected void prestarLibro(String persona){
+        System.out.println("Libro " + titulo + "prestado a " + persona + " por 15 dias");
+    }
+    protected void prestarLibro(String persona, int dias){
+        System.out.println("Libro '" + titulo + "' prestado a " + persona + " por " + dias + " días");
+    }
 }
 class Revista extends Publicacion{
     String nombrePagina;
@@ -48,5 +60,26 @@ class Revista extends Publicacion{
                 \tNombrePagina: %s
                 \tNumeroEdicion: %d 
                 """.formatted(titulo, autor, nombrePagina, numeroEdicion); 
+    }
+}
+class Articulo extends Publicacion{
+    String metodologia;
+    int añoPubliacion;
+
+    public Articulo(String metodologia, int añoPubliacion, String titulo, String autor){
+        super(titulo, autor);
+        this.metodologia = metodologia;
+        this.añoPubliacion = añoPubliacion;
+    }
+    @Override
+    protected String getMostrarInformacion(){
+        return """ 
+                %nInformacion:\s 
+                ----------------- 
+                \tTitulo: %s 
+                \tAutor: %s
+                \tMetodologia : %s
+                \tAñoPublicacion: %d 
+                """.formatted(titulo, autor, metodologia, añoPubliacion); 
     }
 }

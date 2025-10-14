@@ -19,8 +19,22 @@ public class Biblioteca {
         // System.out.println(publicacion[2].getMostrarInformacion());
         // System.out.println(publicacion[3].getMostrarInformacion());
         // System.out.println(publicacion[4].getMostrarInformacion());
-        for (Publicacion publicacio: publicacion){
-            System.out.println(publicacio.getMostrarInformacion());
-        }
+        //for (Publicacion publicacio: publicacion){
+        //    System.out.println(publicacio.getMostrarInformacion());
+        //}
+
+        //for (int i = 0; i < publicacion.length; i++){
+        //    System.out.println(publicacion[i].getMostrarInformacion());
+        //}
+        //hacerHablar(revista1);
+        //hacerHablar(revista2);
+        //hacerHablar(libro1);
+        libro1.prestarLibro();
+        libro1.prestarLibro("rolando");
+        libro1.prestarLibro(10);
+        libro1.prestarLibro("rolando", 11);
     }
+    //public static void hacerHablar(Publicacion publica){
+    //    System.out.println(publica.getMostrarInformacion());
+    //}
 }
