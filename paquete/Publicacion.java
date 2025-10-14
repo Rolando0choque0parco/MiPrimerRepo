@@ -1,24 +1,24 @@
 package paquete;
-public abstract class Publicacion {
-    String titulo;
-    String autor;
+public abstract class Publicacion { //clase abstracta Publicacion
+    String titulo;   //atributo titulo
+    String autor;    //atributo autor
 
-    public Publicacion(String titulo, String autor){
+    public Publicacion(String titulo, String autor){  //metodo constructor
         this.titulo = titulo;
         this.autor = autor;
     }
-    protected abstract String getMostrarInformacion();
+    protected abstract String getMostrarInformacion(); //metodo abstracto getMostrarInformacion()
 }
-class Libro extends Publicacion{
-    String nombreEditorial;
-    int numPaginas;
+class Libro extends Publicacion{  //subclase Libro
+    String nombreEditorial;   //atributo propio
+    int numPaginas;     //atributo propio
     public Libro(String nombreEditorial, int numPaginas, String titulo, String autor){
         super(titulo, autor);
         this.nombreEditorial = nombreEditorial;
         this.numPaginas = numPaginas;
     }
-    @Override
-    protected String getMostrarInformacion(){
+    @Override                          //polimorfismo por redifinicion con @override
+    protected String getMostrarInformacion(){   //propia version del metodo getMostrarInformacion() o una redifinicion
         return """ 
                 %nInformacion:\s 
                 ----------------- 
@@ -28,30 +28,30 @@ class Libro extends Publicacion{
                 \tNumPaginas: %d 
                 """.formatted(titulo, autor, nombreEditorial, numPaginas); 
     }
-    protected void prestarLibro(){
+    protected void prestarLibro(){                                     //polimorfismo por sobrecarga
         System.out.println("libro " +  titulo + "prestado por 15 dias");
     }
-    protected void prestarLibro(int dias){
+    protected void prestarLibro(int dias){                                    //polimorfismo por sobrecarga
         System.out.println("libro " + titulo + "prestado por " + dias + " dias");
     }
-    protected void prestarLibro(String persona){
+    protected void prestarLibro(String persona){                                    //polimorfismo por sobrecarga
         System.out.println("Libro " + titulo + "prestado a " + persona + " por 15 dias");
     }
-    protected void prestarLibro(String persona, int dias){
+    protected void prestarLibro(String persona, int dias){                                    //polimorfismo por sobrecarga
         System.out.println("Libro '" + titulo + "' prestado a " + persona + " por " + dias + " días");
     }
 }
-class Revista extends Publicacion{
-    String nombrePagina;
-    int numeroEdicion;
+class Revista extends Publicacion{   //subclase Revista
+    String nombrePagina;  //atributo propio
+    int numeroEdicion;      //atributo propio
 
-    public Revista(String nombrePagina, int numeroEdicion, String titulo, String autor){
+    public Revista(String nombrePagina, int numeroEdicion, String titulo, String autor){  //metodo constructor
         super(titulo, autor);
         this.nombrePagina = nombrePagina;
         this.numeroEdicion = numeroEdicion;
     }
-    @Override
-    protected String getMostrarInformacion(){
+    @Override      //polimorfismo por redifinicion con @override
+    protected String getMostrarInformacion(){    //propia version del metodo getMostrarInformacion() o una redifinicion
         return """ 
                 %nInformacion:\s 
                 ----------------- 
@@ -62,7 +62,7 @@ class Revista extends Publicacion{
                 """.formatted(titulo, autor, nombrePagina, numeroEdicion); 
     }
 }
-class Articulo extends Publicacion{
+class Articulo extends Publicacion{   //nueva subclase
     String metodologia;
     int añoPubliacion;
 
@@ -72,7 +72,7 @@ class Articulo extends Publicacion{
         this.añoPubliacion = añoPubliacion;
     }
     @Override
-    protected String getMostrarInformacion(){
+    protected String getMostrarInformacion(){  //polimorfismo por redifinicion con @override
         return """ 
                 %nInformacion:\s 
                 ----------------- 
@@ -81,5 +81,8 @@ class Articulo extends Publicacion{
                 \tMetodologia : %s
                 \tAñoPublicacion: %d 
                 """.formatted(titulo, autor, metodologia, añoPubliacion); 
+    }
+    protected void descargarArticulo(){    //herencia por diferencia o especializacion
+        System.out.println("se esta descargando el articulo");
     }
 }
